@@ -1,8 +1,10 @@
-import '../App.css'
+import { motion } from "framer-motion"
 
 const ImageCard = ({ title, desktopImg, mobileImg }) => {
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
       className="
         relative h-80
         bg-cover bg-center
@@ -35,7 +37,7 @@ const ImageCard = ({ title, desktopImg, mobileImg }) => {
       >
         {title}
       </h2>
-    </div>
+    </motion.div>
   )
 }
 

@@ -15,37 +15,83 @@ import nightArcadeMobile from '../images/mobile/image-night-arcade.jpg';
 import pocketBorealisMobile from '../images/mobile/image-pocket-borealis.jpg';
 import soccerTeamMobile from '../images/mobile/image-soccer-team.jpg';
 import ImageCard from './ImageCard';
+import { motion } from 'framer-motion';
 
 import '../App.css'
 
 
 
 const Creations = () => {
+
+  const containerVariants = {
+    hidden: { opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30},
+    visible: {
+      opacity: 1,
+      y: 0,
+      transiton: { duration: 0.5 }
+    }
+  }
   return (
     <div className="py-20 px-6 md:px-16 lg:px-32">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-12">
+        <motion.div 
+          initial={{opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y:0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-between mb-12">
           <h1 className="text-3xl md:text-4xl font-light tracking-widest uppercase">
             Our Creations
           </h1>
-          <button className="hidden md:block border-2 border-black px-10 py-2 hover:bg-black hover:text-white transition-colors tracking-widest uppercase text-sm font-light">
+          <button className="hidden md:block border-2 border-black px-10 py-2 hover:bg-black hover:text-white transition-colors tracking-widest uppercase text-sm font-light focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
             see all
           </button>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <ImageCard title={'deep earth'} desktopImg={deepEarth} mobileImg={deepEarthMoblie} />
-          <ImageCard title={'night arcade'} desktopImg={nightArcade} mobileImg={nightArcadeMobile}/>
-          <ImageCard title={'soccer team vr'} desktopImg={soccerTeam} mobileImg={soccerTeamMobile} />
-          <ImageCard title={'the grid'} desktopImg={grid} mobileImg={gridMobile}/>
-          <ImageCard title={'from up above vr'} desktopImg={fromAbove} mobileImg={fromAboveMobile} />
-          <ImageCard title={'pocket borealis'} desktopImg={pocketBorealis} mobileImg={pocketBorealisMobile}/>
-          <ImageCard title={'the curiosity'} desktopImg={curiosity} mobileImg={curiosityMobile} />
-          <ImageCard title={'make it fisheye'} desktopImg={fishEye} mobileImg={fishEyeMobile} />
-        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'deep earth'} desktopImg={deepEarth} mobileImg={deepEarthMoblie}/>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'night arcade'} desktopImg={nightArcade} mobileImg={nightArcadeMobile}/>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'soccer team vr'} desktopImg={soccerTeam} mobileImg={soccerTeamMobile} />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'the grid'} desktopImg={grid} mobileImg={gridMobile}/>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'from up above vr'} desktopImg={fromAbove} mobileImg={fromAboveMobile}/>
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'pocket borealis'} desktopImg={pocketBorealis} mobileImg={pocketBorealisMobile} />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'the curiosity'} desktopImg={curiosity} mobileImg={curiosityMobile} />
+          </motion.div>
+          <motion.div variants={itemVariants}>
+            <ImageCard title={'make it fisheye'} desktopImg={fishEye} mobileImg={fishEyeMobile}/>
+          </motion.div>
+        </motion.div>
 
         <div className="flex justify-center md:hidden">
-          <button className="border-2 border-black px-10 py-2 hover:bg-black hover:text-white transition-colors tracking-widest uppercase text-sm font-light">
+          <button aria-label='View all creations' className="border-2 border-black px-10 py-2 hover:bg-black hover:text-white transition-colors tracking-widest uppercase text-sm font-light">
             see all
           </button>
         </div>

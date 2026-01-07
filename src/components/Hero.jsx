@@ -1,4 +1,5 @@
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -21,11 +22,15 @@ const Hero = () => {
 
       {/* Hero content */}
       <div className="relative  h-full flex items-center mb-6 px-6 md:px-16 lg:px-32">
-        <div className="border-2 border-white p-6 md:p-8 max-w-162.5">
+        <motion.div 
+          initial={{ opacity:0, y:50 }}
+          animate={{ opacity:1, y:0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="border-2 border-white p-6 md:p-8 max-w-162.5">
           <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-light uppercase tracking-wide leading-tight">
             Immersive experiences that deliver
           </h1>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

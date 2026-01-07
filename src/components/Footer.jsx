@@ -1,12 +1,18 @@
-import logo from '../images/logo.svg'
-import faceBook from '../images/icon-facebook.svg'
-import pinterest from '../images/icon-pinterest.svg'
-import instagram from '../images/icon-instagram.svg'
-import twitter from '../images/icon-twitter.svg'
+import logo from '../images/logo.svg';
+import faceBook from '../images/icon-facebook.svg';
+import pinterest from '../images/icon-pinterest.svg';
+import instagram from '../images/icon-instagram.svg';
+import twitter from '../images/icon-twitter.svg';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <motion.footer 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row md:justify-between gap-10">
 
@@ -47,7 +53,7 @@ const Footer = () => {
 
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 

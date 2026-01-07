@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className={`relative z-40 px-6 py-8 md:px-16 lg:px-32 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur": "bg-transparent"}`}>
+      <nav aria-label="Main navigation" className={`relative z-40 px-6 py-8 md:px-16 lg:px-32 transition-all duration-300 ${scrolled ? "bg-black/80 backdrop-blur": "bg-transparent"}`}>
         <div className="flex items-center justify-between">
           <img src={logo} alt="Loopstudios logo" className="w-32 md:w-40" />
 
